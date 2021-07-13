@@ -1,21 +1,27 @@
-"""frontend URL Configuration
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
+from zbikeapp.views import *
+from django.conf.urls.static import static
+from django.conf import settings
+from django.conf.urls import include
 
 urlpatterns = [
+    path('djrichtextfield/', include('djrichtextfield.urls')),
     path('admin/', admin.site.urls),
-]
+    path('', HOME , name = 'home'),
+    path('contact/', CONTACT , name = 'contact'),
+    path('about/', ABOUT , name = 'about'),
+    path('bikes/', BIKES , name = 'bikes'),
+    path('services', SERVICES , name = 'services'),
+    path('pricing', PRICING , name = 'pricing'),
+    path('terms_conditions',TERMS_CONDITIONS,name= 'terms_conditions'),
+    path('privacy_policy',PRIVACY_POLICY,name= 'privacy_policy'),
+    path('paymrnt_procedure',PAYMENT_PROCEDURE,name= 'payment_procedure'),
+    path('buying_tips',BOOKING_TIPss,name= 'buying_tips'),
+    path('faqs',FAQS,name= 'faqs'),
+
+    path('car_single/<int:car_id>/',CAR_SINGLE, name='car_single'),
+    path('car_category_filter/<int:car_id>/',CAR_CATEGORY_FILTER, name='car_category_filter'),
+    
+]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

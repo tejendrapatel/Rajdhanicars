@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'djrichtextfield',
     'zbikeapp',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -82,6 +83,17 @@ DATABASES = {
 }
 
 
+DJRICHTEXTFIELD_CONFIG = {
+    'js': ['//cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'],
+    'init_template': 'djrichtextfield/init/tinymce.js',
+    'settings': {
+        'menubar': True,
+        'plugins': 'link image',
+        'toolbar': 'bold italic | link image | removeformat | align | styles ',
+        'width': 900,
+        'height': 900
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -118,4 +130,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "info.rajdhanicars@gmail.com"
+EMAIL_HOST_PASSWORD = "Rajdhani@123"
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
