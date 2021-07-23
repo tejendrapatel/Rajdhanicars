@@ -1,29 +1,33 @@
 {% load static %}
     {% include 'header.html' %}
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({% static 'images/bg2.jpg' %});" data-stellar-background-ratio="0.5">
+	<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({% static 'images/bg2.jpg' %});" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 		  <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
 			<div class="col-md-9 ftco-animate pb-5">
 			  <h1 style="font-size: 80px;font-weight: 800;text-shadow: 2px 7px 0px #c20000;" >Choose Your Car</h1>
+			  <p style="font-weight: 500;text-shadow: 2px 2px 0px #c20000;" >Cars Under 200000 to 300000 Lakh</p>
 			</div>
 		  </div>
 		</div>
 	  </section>
-  
+		
 
 		<section class="ftco-section bg-light">
     	<div class="container">
     		<div class="row">
-				{% for i in ca %}
+				{% for i in price50 %}
     			<div class="col-md-4">
     				<div class="car-wrap rounded ftco-animate">
     					<div class="img rounded d-flex align-items-end" style="background-image: url({{ i.image.url }});">
     					</div>
     					<div class="text">
-    						<h2 class="mb-0"><a href="car-single.html">{{ i.category }} &nbsp{{ i.name }}</a></h2>
-							<p><h7>{{ i.kilometer }}</h7> | <h7>{{ i.fuel_type }}</h7> | <h7>{{ i.model }}</h7> | <h7>{{ i.car_number }}</h7></p>
-    						<p class="d-flex mb-0 d-block"><a href="{% url 'car_single' i.id %}" class="btn btn-primary py-2 mr-1" >Details</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1" >Watsapp Us</a></p>
+    						<h2 class="mb-0"><a href="car-single.html">{{ i.name }}</a></h2>
+    						<div class="d-flex mb-3">
+	    						<span class="cat">{{ i.year }}</span>
+	    						<p class="price ml-auto"> Rs{{ i.price }}<span></span></p>
+    						</div>
+    						<p class="d-flex mb-0 d-block"><a href="{% url 'car_single' i.id %}" class="btn btn-primary py-2 mr-1">Details</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Watsapp Us</a></p>
     					</div>
     				</div>
     			</div>

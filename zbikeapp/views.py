@@ -10,12 +10,17 @@ from django.core.mail import EmailMultiAlternatives
 from frontend.settings import EMAIL_HOST_USER
 from django.contrib.auth.models import User
 def HOME(request):
-    li = []
+    you =  video.objects.all()
+    you2 = you[:2]
     ca = cars.objects.all()
-
+    price50 = [p for p in cars.objects.all() if (p.price >= 50000 and p.price <=100000)]
+    price100 = [p for p in cars.objects.all() if (p.price >= 100000 and p.price <=200000)]
+    price200 = [p for p in cars.objects.all() if (p.price >= 200000 and p.price <=300000)]
+    price500 = [p for p in cars.objects.all() if (p.price >= 300000 and p.price <=500000)]
     carr= Carcategory.objects.all()
-    d = {"ca":ca,"carr":carr}
-    return render(request,'tt.html',d)
+    clientss = cli.objects.all()
+    d = {"ca":ca,"carr":carr,"price50":price50,"price100":price100,"price200":price200,"price500":price500,"clientss":clientss,"you":you,"you2":you2}
+    return render(request,'index.html',d)
 
 def ABOUT(request):
     return render(request,'about.html')
@@ -75,6 +80,23 @@ def FAQS(request):
     d = {"ter": ter}
     return render(request, 'faqs.html',d)
 
+def CAR_PRICE1(request):
+    price50 = [p for p in cars.objects.all() if (p.price >= 50000 and p.price <=100000)]
+    d = {"price50":price50}
+    return render(request,'carprice_filter1.html',d)
+def CAR_PRICE2(request):
+    price100 = [p for p in cars.objects.all() if (p.price >= 100000 and p.price <=200000)]
+    d = {"price50":price100}
+    return render(request,'carprice_filter2.html',d)
+def CAR_PRICE3(request):
+    price200 = [p for p in cars.objects.all() if (p.price >= 200000 and p.price <=300000)]
+    d = {"price50":price200}
+    return render(request,'carprice_filter3.html',d)
+def CAR_PRICE4(request):
+    price500 = [p for p in cars.objects.all() if (p.price >= 300000 and p.price <=500000)]
+    d = {"price50":price500}
+    return render(request,'carprice_filter4.html',d)
+
 ######## DYNAMIC URLS   ########
 
 def CAR_SINGLE(request,car_id):
@@ -83,6 +105,12 @@ def CAR_SINGLE(request,car_id):
     return render(request, 'car_detail.html',d)
 
 def CAR_CATEGORY_FILTER(request,car_id):
+    single = Carcategory.objects.get(id=car_id)
+    carsingle = cars.objects.filter(category=single)
+    d = {"carsingle":carsingle}
+    return render(request, 'car_category_filter.html',d)
+
+def CAR_PRICE(request,car_id):
     single = Carcategory.objects.get(id=car_id)
     carsingle = cars.objects.filter(category=single)
     d = {"carsingle":carsingle}

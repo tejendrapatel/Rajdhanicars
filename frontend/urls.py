@@ -20,8 +20,15 @@ urlpatterns = [
     path('paymrnt_procedure',PAYMENT_PROCEDURE,name= 'payment_procedure'),
     path('buying_tips',BOOKING_TIPss,name= 'buying_tips'),
     path('faqs',FAQS,name= 'faqs'),
+    path('carprice1',CAR_PRICE1, name='carprice1'),
+    path('carprice2',CAR_PRICE2, name='carprice2'),
+    path('carprice3',CAR_PRICE3, name='carprice3'),
+    path('carprice4',CAR_PRICE4, name='carprice4'),
+
+    #######dynamic urls ##########
 
     path('car_single/<int:car_id>/',CAR_SINGLE, name='car_single'),
     path('car_category_filter/<int:car_id>/',CAR_CATEGORY_FILTER, name='car_category_filter'),
+ 
     
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
