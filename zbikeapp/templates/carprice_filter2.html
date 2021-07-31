@@ -22,12 +22,10 @@
     					<div class="img rounded d-flex align-items-end" style="background-image: url({{ i.image.url }});">
     					</div>
     					<div class="text">
-    						<h2 class="mb-0"><a href="car-single.html">{{ i.name }}</a></h2>
-    						<div class="d-flex mb-3">
-	    						<span class="cat">{{ i.year }}</span>
-	    						<p class="price ml-auto"> Rs{{ i.price }}<span></span></p>
-    						</div>
-    						<p class="d-flex mb-0 d-block"><a href="{% url 'car_single' i.id %}" class="btn btn-primary py-2 mr-1">Details</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Watsapp Us</a></p>
+
+    						<h2 class="mb-0"><a href="car-single.html">{{ i.category }} &nbsp{{ i.name }} &nbsp RS{{ i.price }}</a></h2>
+							<p><h7>{{ i.kilometer }}Km</h7> | <h7>{{ i.fuel_type }}</h7> | <h7>{{ i.model }}</h7> | <h7>{{ i.registration_No }}</h7></p>
+    						<p class="d-flex mb-0 d-block"><a href="{% url 'car_single' i.id %}" class="btn btn-primary py-2 mr-1" >Details</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1" >Watsapp Us</a></p>
     					</div>
     				</div>
     			</div>

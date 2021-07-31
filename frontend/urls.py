@@ -9,7 +9,9 @@ from django.conf.urls import include
 urlpatterns = [
     path('djrichtextfield/', include('djrichtextfield.urls')),
     path('admin/', admin.site.urls),
-    path('', HOME , name = 'home'),
+    path('',VERIFICATION,name= 'verification'),
+    path('verification_otp',VERIFICATION_OTP,name='verification_otp'),
+    path('home', HOME , name = 'home'),
     path('contact/', CONTACT , name = 'contact'),
     path('about/', ABOUT , name = 'about'),
     path('bikes/', BIKES , name = 'bikes'),
@@ -20,6 +22,8 @@ urlpatterns = [
     path('paymrnt_procedure',PAYMENT_PROCEDURE,name= 'payment_procedure'),
     path('buying_tips',BOOKING_TIPss,name= 'buying_tips'),
     path('faqs',FAQS,name= 'faqs'),
+  
+   
     path('carprice1',CAR_PRICE1, name='carprice1'),
     path('carprice2',CAR_PRICE2, name='carprice2'),
     path('carprice3',CAR_PRICE3, name='carprice3'),

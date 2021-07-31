@@ -1,0 +1,701 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+       {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Rajdhani Cars</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/loggg.png' %}">
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-onix-digital.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animated.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+<!--
+
+TemplateMo 565 Onix Digital
+
+https://templatemo.com/tm-565-onix-digital
+
+--><script src="{% static 'zheader/js/jquery-1.11.1.min.js' %}"></script>
+<script src="{% static 'zheader/js/jquery.vide.min.js' %}"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#myModal").modal('show');
+	});
+</script>
+  </head>
+
+<body>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
+  <style type="text/css">
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 60%;
+      height: 100%;
+      background-color: #000;
+      filter: alpha(opacity=70);
+      -moz-opacity: 0.7;
+      -khtml-opacity: 0.7;
+      opacity: 0.7;
+      z-index: 100;
+      display: none;
+    }
+  
+    .cnt223 a {
+      text-decoration: none;
+    }
+  
+    .popup {
+      width: 90%;
+      margin: 0 auto;
+      display: none;
+      position: fixed;
+      z-index: 101;
+    }
+  
+    .cnt223 {
+      min-width: 500px;
+      width: 500px;
+      min-height: 150px;
+      margin: 100px auto;
+      background: #f3f3f3;
+      position: relative;
+      z-index: 103;
+      padding: 15px 35px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px #000;
+    }
+  
+    .cnt223 p {
+      clear: both;
+      color: #555555;
+      /* text-align: justify; */
+      font-size: 20px;
+      font-family: sans-serif;
+    }
+  
+    .cnt223 p a {
+      color: #d91900;
+      font-weight: bold;
+    }
+  
+    .cnt223 .x {
+      float: right;
+      height: 35px;
+      left: 22px;
+      position: relative;
+      top: -25px;
+      width: 34px;
+    }
+  
+    .cnt223 .x:hover {
+      cursor: pointer;
+    }
+  </style>
+  <script type='text/javascript'>
+    $(function() {
+      var overlay = $('<div id="overlay"></div>');
+      overlay.show();
+      overlay.appendTo(document.body);
+      $('.popup').show();
+      $('.close').click(function() {
+        $('.popup').hide();
+        overlay.appendTo(document.body).remove();
+        return false;
+      });
+      $('.x').click(function() {
+        $('.popup').hide();
+        overlay.appendTo(document.body).remove();
+        return false;
+      });
+    });
+  </script>
+  <div class='popup'>
+    <div class='cnt223' style="margin-top:300px">
+      <form method="POST">
+        {% csrf_token %}
+        <br><br>
+        <div class="form-group">
+          <input type="text" name="zzz"  minlength="4" maxlength="4" class="form-control" placeholder="Enter otp">
+      </div>
+        <button type="submit" class="btn btn-primary" style="background-color: #c20000;">verify otp</button>
+    </form>
+    </div>
+  </div>
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="index.html" class="logo">
+              <img src="{% static 'images/rajlog.png' %}" style="width:70%">
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+            <li class="nav-item "><a href="{%  url 'home' %}" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="{% url 'bikes' %}" class="nav-link">Cars</a></li>
+	          <li class="nav-item"><a href="{% url 'services' %}" class="nav-link">Services</a></li>
+            <!-- <li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link">Pricing</a></li> -->
+            <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+              <li class="scroll-to-section"><div class="main-red-button-hover"><a href="#contact">Login</a></div></li> 
+            </ul>        
+            <a class='menu-trigger'>
+                <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+ 
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="index.html" class="logo">
+              <img src="{% static 'images/rajlog.png' %}" style="width:70%">
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+            <li class="nav-item "><a href="{%  url 'home' %}" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="{% url 'bikes' %}" class="nav-link">Cars</a></li>
+	          <li class="nav-item"><a href="{% url 'services' %}" class="nav-link">Services</a></li>
+            <!-- <li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link">Pricing</a></li> -->
+            <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+              <li class="scroll-to-section"><div class="main-red-button-hover"><a href="#contact">Login</a></div></li> 
+            </ul>        
+            <a class='menu-trigger'>
+                <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+<div>
+
+ <div class ="container-fluid  px-0">
+ <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner" >
+    <div class="carousel-item active">
+      <img src="{% static 'images/bg_1.jpg' %}" style="height:750px"class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <div class="owl-carousel owl-banner">
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/car-3.jpg' %}"style="height:750px" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>natures,cites,cars,models ets.</h5>
+        <p>work.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/car-4.jpg' %}" style="height:750px" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Natures,Cites,Cars,Models ets.</h5>
+        <p>Places.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+ </div>
+
+
+</div>
+
+
+
+  <div id="pricing" class="pricing-tables">
+    <div class="tables-left-dec">
+      <img src="{% static 'assets/images/tables-left-dec.png' %}" style="width: 50%;" alt="">
+    </div>
+    <div class="tables-right-dec">
+      <img src="{% static 'assets/images/tables-right-dec.png' %}" alt="">
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <div class="section-heading">
+            <span>OFFER</span>
+            <h2 class="mb-3" style="font-weight: 700;font-size: 40px;">Top Brands</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        {% for i in carr %}
+        <div class="col-lg-2" style="margin-top:20px;">
+          <div class="item third-item">
+            <a href="{% url 'car_category_filter' i.id %}" ><img src="{{ i.image.url }}" style="width:85px;height:80px"></a>
+            <!-- <li>{{ i.name }}</li> -->
+          </div>
+          
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+
+  <div id="pricing" class="pricing-tables">
+    <div class="tables-left-dec">
+      <img src="{% static 'assets/images/tables-left-dec.png' %}" alt="">
+    </div>
+    <div class="tables-right-dec">
+      <img src="{% static 'assets/images/tables-right-dec.png' %}" alt="">
+    </div>
+    <div class="container">
+      <div class="row">
+        
+      </div>
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="item first-item">
+          <img src="{% static 'images/alt.png' %}" style="width: 80%;">  
+          <a href="{% url 'carprice1'  %}" ><h4>50,000 to 1 Lakh</h4></a>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="item second-item">
+          <img src="{% static 'images/10.png' %}"> 
+            <a href="{% url 'carprice2'  %}"><h4>1 Lakh to 2 Lakh</h4></a>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="item second-item">
+          <img src="{% static 'images/red.png' %}"> 
+            <a href="{% url 'carprice3'  %}"><h4>2 Lakh to 3 Lakh</h4></a>
+          </div>
+        </div> 
+        <div class="col-lg-3">
+          <div class="item second-item">
+          <img src="{% static 'images/f1.png' %}"> 
+            <a href="{% url 'carprice4'  %}"><h4>5 Lakh and above</h4></a>
+          </div>
+        </div>
+     
+      </div>
+    </div>
+  </div>
+
+  <div id="services" class="our-services section">
+    <div class="services-right-dec">
+      <img src="{% static 'assets/images/services-right-dec.png' %}" alt="">
+    </div>
+    <div class="container">
+      <div class="services-left-dec">
+        <img src="{% static 'assets/images/services-left-dec.png' %}" alt="">
+      </div>
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <div class="section-heading">
+            <h2 class="mb-3" style="font-weight: 700;font-size: 40px;">Our Cars</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="owl-carousel owl-services">
+            {% for i in ca %}
+            <div class="">
+              <div><img src="{{ i.image.url }}" style="width:300px;height: 250px;"></div><br>
+              <h6 style="font-size: 18px;font-weight: 800;">{{ i.category }} &nbsp{{ i.name }}</h6>
+              <p><h7>{{ i.kilometer }}</h7> | <h7>{{ i.fuel_type }}</h7> | <h7>{{ i.model }}</h7> | <h7>{{ i.registration_No }}</h7></p>
+              <p class="d-flex mb-0 d-block"><a href="{% url 'car_single' i.id %}" class="btn btn-primary py-2 mr-1" style="background-color: #c20000;"> &nbsp &nbsp &nbsp Details &nbsp &nbsp &nbsp </a > &nbsp &nbsp &nbsp <a href="car-single.html" class="btn btn-secondary py-2 ml-1" style="background-color:green"> &nbsp Watsapp Us &nbsp </a></p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <div id="about" class="about-us section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 align-self-center">
+          <div class="left-image">
+            <img src="{% static 'images/cc.png' %}" alt="Two Girls working together">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="section-heading">
+            <h2>Enchanting<em> Our</em>  <span>Clients</span></h2>
+            <p>Zero in on quality and productivity to make client charm 
+              Bother free vehicle finance 
+              Open money alternatives for each profile and geology</p>
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="fact-item">
+                  <div class="count-area-content">
+                    <div class="icon">
+                      <img src="{% static 'images/w3.png' %}" alt="">
+                    </div>
+                    <div class="count-digit">1000+</div>
+                    <div class="count-title">Cars sold</div>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="fact-item">
+                  <div class="count-area-content">
+                    <div class="icon">
+                      <img src="{% static 'images/w2.png' %}" alt="">
+                    </div>
+                    <div class="count-digit">1500+</div>
+                    <div class="count-title">Rajdhani Family</div>
+                   
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="fact-item">
+                  <div class="count-area-content">
+                    <div class="icon">
+                      <img src="{% static 'images/w1.png' %}" alt="">
+                    </div>
+                    <div class="count-digit">10+</div>
+                    <div class="count-title">Year experience</div>
+                    
+                  </div>
+                </div>
+              </div>
+              <p style="font-size: 30px;font-weight: 800;color: #ff695f;text-shadow: 2px 2px 3px #000000;">Cars, that impresses you at first glance only at Rajdhani Cars.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="portfolio" class="our-portfolio section">
+    <div class="portfolio-left-dec">
+      <img src="{% static 'assets/images/portfolio-left-dec.png' %}" alt="">
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <div class="section-heading">
+            <h2 class="mb-3" style="font-weight: 700;font-size: 40px;">Our Happy Clients</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="owl-carousel owl-portfolio">
+            {% for i in clientss %}
+            <div class="item" >
+              <div class="thumb">
+                <img src="{{ i.image.url }}" style="height: 400px;width:450px" alt="">
+                
+              </div>
+            </div>
+           {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="pricing" class="pricing-tables">
+    <div class="tables-left-dec">
+      <img src="{% static 'assets/images/tables-left-dec.png' %}" alt="">
+    </div>
+    <div class="tables-right-dec">
+      <img src="{% static 'assets/images/tables-right-dec.png' %}" alt="">
+    </div>
+<div>
+  <section class="ftco-section">
+			<div class="container">
+				<div class="row justify-content-center mb-5">
+          <div class="col-md-12 text-center heading-section ftco-animate">
+          	
+            <h2 class="mb-3" style="font-weight: 700;font-size: 40px;">Our  Services</h2>
+          </div>
+        </div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="services services-2 w-100 text-center">
+            	<div class="icon d-flex align-items-center justify-content-center"><a href="{% url 'home' %}"><img  src="{% static 'images/reg_transfer.png' %}" style="width: 30%;" ></a></div>
+            	<div class="text w-100">
+                <h3 class="heading mb-2">Registration transfer</h3>
+                <p>We provide free Registration transfer service</p>
+              </div>
+            </div>
+					</div>
+					<div class="col-md-4">
+						<div class="services services-2 w-100 text-center">
+            	<div class="icon d-flex align-items-center justify-content-center"><a href="{% url 'home' %}"><img  src="{% static 'images/insurance.png' %}" style="width: 30%;" ></a></div>
+            	<div class="text w-100">
+                <h3 class="heading mb-2">Insurance facility</h3>
+                <p>The best facilities with our Insurance patners</p>
+              </div>
+            </div>
+					</div>
+					<div class="col-md-4">
+						<div class="services services-2 w-100 text-center">
+            	<div class="icon d-flex align-items-center justify-content-center"><a href="{% url 'home' %}"><img  src="{% static 'images/finance.png' %}" style="width: 30%;" ></a></div>
+            	<div class="text w-100">
+                <h3 class="heading mb-2">Finance facility</h3>
+                <p>We provide you the best finincial Patners</p>
+              </div>
+            </div>
+					</div>
+          <br><br>
+					<div class="col-md-4">
+						<div class="services services-2 w-100 text-center">
+            	<div class="icon d-flex align-items-center justify-content-center"><a href="{% url 'home' %}"><img  src="{% static 'images/home_del.png' %}" style="width: 30%;" ></a></div>
+            	<div class="text w-100">
+                <h3 class="heading mb-2">Home delivery</h3>
+                <p>Stay Home we deliver your bookings All over MP</p>
+              </div>
+            </div>
+					</div>
+          <div class="col-md-4">
+						<div class="services services-2 w-100 text-center">
+            	<div class="icon d-flex align-items-center justify-content-center"><a href="{% url 'home' %}"><img  src="{% static 'images/paid_warr.png' %}" style="width: 30%;" ></a></div>
+            	<div class="text w-100">
+                <h3 class="heading mb-2">Paid warrenty</h3>
+                <p>Let Warranty Processing Inc handle by Rajdhani</p>
+              </div>
+            </div>
+					</div>
+          <div class="col-md-4">
+						<div class="services services-2 w-100 text-center">
+            	<div class="icon d-flex align-items-center justify-content-center"><a href="{% url 'home' %}"><img  src="{% static 'images/service_free.png' %}" style="width: 30%;" ></a></div>
+            	<div class="text w-100">
+                <h3 class="heading mb-2">One free service</h3>
+                <p>The one time free service is valid upto 5000 km</p>
+              </div>
+            </div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+    <div id="portfolio" class="our-portfolio section">
+      <div class="portfolio-left-dec">
+        <img src="{% static 'assets/images/portfolio-left-dec.png' %}" alt="">
+      </div>
+      <br>
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 offset-lg-3">
+            <div class="section-heading">
+              <h2 class="mb-3" style="font-weight: 700;font-size: 40px;">Our Finance Patners</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="owl-carousel owl-portfolio">
+              {% for i in fclientss %}
+              <div class="item">
+                <div class="thumb">
+                  <img src="{{ i.image.url }}" style="width:300px;height:150px" alt="">
+                </div>
+              </div>
+             {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+</div>
+
+  
+
+  
+ 
+
+  <div id="subscribe" class="subscribe">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="inner-content">
+            <div class="row">
+              <div class="col-lg-10 offset-lg-1">
+                <h2>Subscribe Our Newsletters</h2>
+                <form id="subscribe" action="" method="get">
+                  <input type="text" name="website" id="website" placeholder="Your Website URL" required="">
+                  <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required="">
+                  <button type="submit" id="form-submit" class="main-button ">Subscribe</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  
+  <div class="footer-dec">
+    <img src="{% static 'assets/images/footer-dec.png' %}" alt="">
+  </div>
+ 
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="about footer-item">
+            <div class="logo">
+              <a href="#"><img src="{% static 'images/rajlog.png' %}" alt="Onix Digital TemplateMo"></a>
+            </div>
+            <a href="#">info.rajdhanicars@gmail.com</a>
+            <ul>
+              <li><a href="https://www.facebook.com/rajdhanicustoms"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="https://www.youtube.com/user/hottzjaved"><i class="fa fa-youtube"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="services footer-item">
+            <h4>Information</h4>
+            <ul>
+            <li><a href="{% url 'about' %}" About</a></li>
+            <li><a href="{% url 'services' %}" >Services</a></li>
+            <li><a href="{% url 'terms_conditions' %}" >Term and Conditions</a></li>
+            <li><a href="{% url 'privacy_policy' %}" >Privacy &amp; Cookies Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="community footer-item">
+            <h4>Customer Support</h4>
+            <ul>
+              <li><a href="{% url 'faqs' %}" >FAQ</a></li>
+              <li><a href="{% url 'payment_procedure' %}" >Payment Option</a></li>
+              <li><a href="{% url 'buying_tips' %}" >Buying Tips</a></li>
+              <li><a href="{% url 'contact' %}" >Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="subscribe-newsletters footer-item">
+         
+            <p>Subscribe Our Newsletters</p>
+            <form action="#" method="get">
+              <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required="">
+              <button type="submit" id="form-submit" class="main-button "><i class="fa fa-paper-plane-o"></i></button>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <section class="ftco-section ftco-partner">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm ftco-animate">
+                  <a href="https://m.cartrade.com/used-car-dealers/rajdhani-cars/163588" class="partner"><img src="{% static 'images/s4.png' %}" target="_blank" style="width: 70%;margin-top:-10px" class="img-fluid" alt="Colorlib Template"></a>
+                </div>
+                <div class="col-sm ftco-animate">
+                  <a href="#" class="partner"><img src="{% static 'images/rajlog.png' %}" target="_blank" style="width: 55%;margin-top:20px"  class="img-fluid" alt="Colorlib Template"></a>
+                </div>
+                <div class="col-sm ftco-animate">
+                  <a href="https://www.cardekho.com/used-car-dealers/bhopal/rajdhani-cars-3345.htm" target="_blank" class="partner"><img src="{% static 'images/cardek.png' %}" style="width: 70%;margin-top:18px"  class="img-fluid" alt="Colorlib Template"></a>
+                </div>
+                <div class="col-sm ftco-animate">
+                  <a href="https://www.olx.in/en/profile/277630259" target="_blank" class="partner"><img src="{% static 'images/olx.png' %}"  style="width: 30%;margin-top:18px" class="img-fluid" alt="Colorlib Template"></a>
+                </div>
+                <div class="col-sm ftco-animate">
+                  <a href="https://www.carwale.com/used/dealers/rajdhanicars/?dealerId=9951" target="_blank" class="partner"><img src="{% static 'images/s2.png' %}"  style="width: 70%;" class="img-fluid" alt="Colorlib Template"></a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+  <script src="{% static 'assets/js/animation.js' %}"></script>
+  <script src="{% static 'assets/js/imagesloaded.js' %}"></script>
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+
+  <script>
+  // Acc
+    $(document).on("click", ".naccs .menu div", function() {
+      var numberIndex = $(this).index();
+
+      if (!$(this).is("active")) {
+          $(".naccs .menu div").removeClass("active");
+          $(".naccs ul li").removeClass("active");
+
+          $(this).addClass("active");
+          $(".naccs ul").find("li:eq(" + numberIndex + ")").addClass("active");
+
+          var listItemHeight = $(".naccs ul")
+            .find("li:eq(" + numberIndex + ")")
+            .innerHeight();
+          $(".naccs ul").height(listItemHeight + "px");
+        }
+    });
+  </script>
+ 
+</body>
+
+</html>

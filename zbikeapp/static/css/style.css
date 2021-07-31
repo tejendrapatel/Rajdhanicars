@@ -9009,10 +9009,11 @@ h1, h2, h3, h4, h5,
 .services.services-2 .icon {
   width: 110px;
   height: 110px;
-  background: #1089ff;
+  background: #ff695f;
   border: none; }
   .services.services-2 .icon span {
     color: #fff; }
+
 
 .ftco-intro {
   background-size: cover;

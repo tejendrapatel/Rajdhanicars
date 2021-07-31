@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+   
 ]
 
 MIDDLEWARE = [
@@ -143,3 +144,6 @@ EMAIL_HOST_PASSWORD = "Rajdhani@123"
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
+account_sid = "AC0c28ce42ce62b3987d561c965a509cfa"
+auth_token = "7b47d9dcc1799be47d2d67c36b80feaa"
+my_twilio = "+15154200749"

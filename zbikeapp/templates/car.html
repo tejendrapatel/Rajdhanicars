@@ -5,7 +5,7 @@
 		<div class="container">
 		  <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
 			<div class="col-md-9 ftco-animate pb-5">
-			  <h1 style="font-size: 80px;font-weight: 800;text-shadow: 2px 7px 0px #c20000;" >Choose Your Car</h1>
+			  <h1 style="font-size: 50px;font-weight: 800;text-shadow: 2px 7px 0px  #000000;" >Choose Your Car</h1>
 			</div>
 		  </div>
 		</div>
@@ -21,8 +21,9 @@
     					<div class="img rounded d-flex align-items-end" style="background-image: url({{ i.image.url }});">
     					</div>
     					<div class="text">
-    						<h2 class="mb-0"><a href="car-single.html">{{ i.category }} &nbsp{{ i.name }}</a></h2>
-							<p><h7>{{ i.kilometer }}</h7> | <h7>{{ i.fuel_type }}</h7> | <h7>{{ i.model }}</h7> | <h7>{{ i.car_number }}</h7></p>
+
+    						<h2 class="mb-0"><a href="car-single.html">{{ i.category }} &nbsp{{ i.name }} &nbsp RS {{ i.price }}</a></h2>
+							<p><h7>KM {{ i.kilometer }}</h7> | <h7>{{ i.fuel_type }}</h7> | <h7>{{ i.model }}</h7> | <h7>{{ i.registration_No }}</h7></p>
     						<p class="d-flex mb-0 d-block"><a href="{% url 'car_single' i.id %}" class="btn btn-primary py-2 mr-1" >Details</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1" >Watsapp Us</a></p>
     					</div>
     				</div>

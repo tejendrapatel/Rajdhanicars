@@ -9,7 +9,29 @@ from django.template.loader import get_template
 from django.core.mail import EmailMultiAlternatives
 from frontend.settings import EMAIL_HOST_USER
 from django.contrib.auth.models import User
-def HOME(request):
+import random
+from frontend.settings import account_sid,auth_token,my_twilio
+
+
+def VERIFICATION(request):
+    if request.method == "POST":
+        f = request.POST
+        namee = f['nam']
+        emaii = f['ema']
+        mobb = f['mob']
+        ra=random.randint(1000,9999)
+        temp=ra
+        subject = "Congratulation "
+        content = ' "you are succesfully registered in Authenticator your security code is "{}" '.format(temp)
+        msg = EmailMultiAlternatives(subject, f'{content}', EMAIL_HOST_USER, [f'{emaii}'])
+        msg.send()
+        if Verifications.objects.filter(mobile=mobb).exists():
+            Verifications.objects.update(name=namee, email=emaii, mobile=mobb, temporary = temp)
+            return redirect('verification_otp')
+        else:
+            Verifications.objects.create(name=namee, email=emaii, mobile=mobb, temporary = temp)
+            return redirect('verification_otp')
+        
     you =  video.objects.all()
     you2 = you[:2]
     ca = cars.objects.all()
@@ -19,7 +41,47 @@ def HOME(request):
     price500 = [p for p in cars.objects.all() if (p.price >= 300000 and p.price <=500000)]
     carr= Carcategory.objects.all()
     clientss = cli.objects.all()
-    d = {"ca":ca,"carr":carr,"price50":price50,"price100":price100,"price200":price200,"price500":price500,"clientss":clientss,"you":you,"you2":you2}
+    fclientss = fcli.objects.all()
+    d = {"ca":ca,"carr":carr,"price50":price50,"price100":price100,"price200":price200,"price500":price500,"fclientss":fclientss,"clientss":clientss,"you":you,"you2":you2}
+    return render(request,'verification.html')
+
+def VERIFICATION_OTP(request):
+    if request.method == "POST":
+        f = request.POST
+        namees = f['zzz']
+        if Verifications.objects.filter(temporary=namees).exists():
+            return redirect('home')
+        else:
+            return redirect('verification')
+    you =  video.objects.all()
+    you2 = you[:2]
+    ca = cars.objects.all()
+    price50 = [p for p in cars.objects.all() if (p.price >= 50000 and p.price <=100000)]
+    price100 = [p for p in cars.objects.all() if (p.price >= 100000 and p.price <=200000)]
+    price200 = [p for p in cars.objects.all() if (p.price >= 200000 and p.price <=300000)]
+    price500 = [p for p in cars.objects.all() if (p.price >= 300000 and p.price <=500000)]
+    carr= Carcategory.objects.all()
+    clientss = cli.objects.all()
+    fclientss = fcli.objects.all()
+    d = {"ca":ca,"carr":carr,"price50":price50,"price100":price100,"price200":price200,"price500":price500,"fclientss":fclientss,"clientss":clientss,"you":you,"you2":you2}
+    return render(request,'verification_otp.html')
+
+def HOME(request):
+    if request.method == "POST":
+        f = request.POST
+        emm = f['ema']
+        Newsletter.objects.create(email=emm)
+    you =  video.objects.all()
+    you2 = you[:2]
+    ca = cars.objects.all()
+    price50 = [p for p in cars.objects.all() if (p.price >= 50000 and p.price <=100000)]
+    price100 = [p for p in cars.objects.all() if (p.price >= 100000 and p.price <=200000)]
+    price200 = [p for p in cars.objects.all() if (p.price >= 200000 and p.price <=300000)]
+    price500 = [p for p in cars.objects.all() if (p.price >= 300000 and p.price <=500000)]
+    carr= Carcategory.objects.all()
+    clientss = cli.objects.all()
+    fclientss = fcli.objects.all()
+    d = {"ca":ca,"carr":carr,"price50":price50,"price100":price100,"price200":price200,"price500":price500,"fclientss":fclientss,"clientss":clientss,"you":you,"you2":you2}
     return render(request,'index.html',d)
 
 def ABOUT(request):
@@ -48,7 +110,9 @@ def BIKES(request):
     return render(request,'car.html',d)
 
 def SERVICES(request):
-    return render(request,'services.html')
+    fclientss = fcli.objects.all()
+    d = {"fclientss":fclientss}
+    return render(request,'services.html',d)
 
 
 def PRICING(request):
@@ -75,6 +139,8 @@ def BOOKING_TIPss(request):
     d = {"ter": ter}
     return render(request, 'buying_tips.html',d)
 
+
+
 def FAQS(request):
     ter = FAQQS.objects.all()
     d = {"ter": ter}
@@ -93,7 +159,7 @@ def CAR_PRICE3(request):
     d = {"price50":price200}
     return render(request,'carprice_filter3.html',d)
 def CAR_PRICE4(request):
-    price500 = [p for p in cars.objects.all() if (p.price >= 300000 and p.price <=500000)]
+    price500 = [p for p in cars.objects.all() if (p.price >= 300000 and p.price <=5000000)]
     d = {"price50":price500}
     return render(request,'carprice_filter4.html',d)
 
@@ -101,7 +167,9 @@ def CAR_PRICE4(request):
 
 def CAR_SINGLE(request,car_id):
     carss = cars.objects.get(id=car_id)
-    d = {"carss":carss}
+    ca  = cars.objects.all()
+    caaa = ca[:3]
+    d = {"carss":carss,"caaa":caaa}
     return render(request, 'car_detail.html',d)
 
 def CAR_CATEGORY_FILTER(request,car_id):
