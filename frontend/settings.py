@@ -25,7 +25,7 @@ SECRET_KEY = 'k5d=!l!b5c0qr6h23jirxf+8k41l#mnqmyt&okh_1rq912ryeq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -144,6 +144,6 @@ EMAIL_HOST_PASSWORD = "Rajdhani@123"
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
-account_sid = "AC0c28ce42ce62b3987d561c965a509cfa"
-auth_token = "7b47d9dcc1799be47d2d67c36b80feaa"
-my_twilio = "+15154200749"
+account_sid = "ACecf7f85e40abc39cccf2130951f6cdaf"
+auth_token = "2ad4978f57848888829f0276ebdeb543"
+my_twilio = "+18646591826"

@@ -23,14 +23,11 @@
     <link rel="stylesheet" href="{% static 'assets/css/animated.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
     <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
 
-<!--
+    <script async src="https://www.widgetsquad.com/pixel/3izgtieq6o3wh6e8vmqcqpvv6nfi3xqc"></script>
 
-TemplateMo 565 Onix Digital
-
-https://templatemo.com/tm-565-onix-digital
-
---><script src="{% static 'zheader/js/jquery-1.11.1.min.js' %}"></script>
+<script src="{% static 'zheader/js/jquery-1.11.1.min.js' %}"></script>
 <script src="{% static 'zheader/js/jquery.vide.min.js' %}"></script>
 <script>
   (function(d, w, c) {
@@ -50,15 +47,15 @@ https://templatemo.com/tm-565-onix-digital
 <body>
 
 
-
+  <div class="elfsight-app-5ceabf19-b30c-437e-8913-19cadb8100cf"></div>
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s" style="background-color: transparent;">
     <div class="container">
       <div class="row">
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="index.html" class="logo">
+            <a href="{% url 'home' %}" class="logo">
               <img src="{% static 'images/rajlog.png' %}" style="width:70%">
             </a>
             <!-- ***** Logo End ***** -->
@@ -70,7 +67,8 @@ https://templatemo.com/tm-565-onix-digital
             <!-- <li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link">Pricing</a></li> -->
             <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
-              <li class="scroll-to-section"><div class="main-red-button-hover"><a href="#contact">Login</a></div></li> 
+            <li class="nav-item"><a href="{% url 'Login' %}" class="nav-link">Login</a></li>
+              <li class="nav-item"><a href="{% url 'Login' %}" class="nav-link"></a></li>
             </ul>        
             <a class='menu-trigger'>
                 <span>Menu</span>
@@ -91,28 +89,32 @@ https://templatemo.com/tm-565-onix-digital
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
-  <div class="carousel-inner" >
+  <div class="carousel-inner" style="padding-top: 100px" >
+    {% for i in banner %}
     <div class="carousel-item active">
-      <img src="{% static 'images/bg_1.jpg' %}" style="height:750px"class="d-block w-100" alt="...">
+      <img src="{{ i.aimage.url }}" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <div class="owl-carousel owl-banner">
         </div>
       </div>
     </div>
+    {% endfor %}
+    {% for j in banner %}
     <div class="carousel-item">
-      <img src="{% static 'images/car-3.jpg' %}"style="height:750px" class="d-block w-100" alt="...">
+      <img src="{{ j.bimage.url }}" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <h5>natures,cites,cars,models ets.</h5>
-        <p>work.</p>
+       
       </div>
     </div>
+    {% endfor %}
+    {% for k in banner %}
     <div class="carousel-item">
-      <img src="{% static 'images/car-4.jpg' %}" style="height:750px" class="d-block w-100" alt="...">
+      <img src="{{ k.cimage.url }}"  class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Natures,Cites,Cars,Models ets.</h5>
-        <p>Places.</p>
+        
       </div>
     </div>
+    {% endfor %}
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -128,7 +130,37 @@ https://templatemo.com/tm-565-onix-digital
 
 </div>
 
-
+  <div id="services" class="our-services section">
+    <div class="services-right-dec">
+      <img src="{% static 'assets/images/services-right-dec.png' %}" alt="">
+    </div>
+    <div class="container">
+      <div class="services-left-dec">
+        <img src="{% static 'assets/images/services-left-dec.png' %}" alt="">
+      </div>
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <div class="section-heading">
+            <h2 class="mb-3" style="font-weight: 700;font-size: 40px;">Our Cars</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="owl-carousel owl-services">
+            {% for i in ca %}
+            <div class="">
+              <div><img src="{{ i.image.url }}" style="width:300px;height: 250px;"></div><br>
+              <h6 style="font-size: 18px;font-weight: 800;">{{ i.category }} &nbsp{{ i.name }}</h6>
+              <p><h7>{{ i.kilometer }}</h7> | <h7>{{ i.fuel_type }}</h7> | <h7>{{ i.model }}</h7> | <h7>{{ i.registration_No }}</h7></p>
+              <p class="d-flex mb-0 d-block"><a href="{% url 'car_single' i.id %}" class="btn btn-primary py-2 mr-1" style="background-color: #c20000;"> &nbsp &nbsp &nbsp Details &nbsp &nbsp &nbsp </a > &nbsp &nbsp &nbsp <a href="https://api.whatsapp.com/send?phone=+919039121545" class="btn btn-secondary py-2 ml-1" style="background-color:green"> &nbsp Watsapp Us &nbsp </a></p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div id="pricing" class="pricing-tables">
     <div class="tables-left-dec">
@@ -175,19 +207,19 @@ https://templatemo.com/tm-565-onix-digital
       <div class="row">
         <div class="col-lg-3">
           <div class="item first-item">
-            <a href="{% url 'carprice4'  %}"><img src="{% static 'images/alt.png' %}" style="width: 80%;">  </a>
+            <a href="{% url 'carprice1'  %}"><img src="{% static 'images/alt.png' %}" style="width: 80%;">  </a>
           <a href="{% url 'carprice1'  %}" ><h4>50,000 to 1 Lakh</h4></a>
           </div>
         </div>
         <div class="col-lg-3">
           <div class="item second-item">
-            <a href="{% url 'carprice4'  %}"><img src="{% static 'images/10.png' %}"> </a>
+            <a href="{% url 'carprice2'  %}"><img src="{% static 'images/10.png' %}"> </a>
             <a href="{% url 'carprice2'  %}"><h4>1 Lakh to 2 Lakh</h4></a>
           </div>
         </div>
         <div class="col-lg-3">
           <div class="item second-item">
-            <a href="{% url 'carprice4'  %}"><img src="{% static 'images/red.png' %}"> </a>
+            <a href="{% url 'carprice3'  %}"><img src="{% static 'images/red.png' %}"> </a>
             <a href="{% url 'carprice3'  %}"><h4>2 Lakh to 3 Lakh</h4></a>
           </div>
         </div> 
@@ -202,37 +234,7 @@ https://templatemo.com/tm-565-onix-digital
     </div>
   </div>
 
-  <div id="services" class="our-services section">
-    <div class="services-right-dec">
-      <img src="{% static 'assets/images/services-right-dec.png' %}" alt="">
-    </div>
-    <div class="container">
-      <div class="services-left-dec">
-        <img src="{% static 'assets/images/services-left-dec.png' %}" alt="">
-      </div>
-      <div class="row">
-        <div class="col-lg-6 offset-lg-3">
-          <div class="section-heading">
-            <h2 class="mb-3" style="font-weight: 700;font-size: 40px;">Our Cars</h2>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="owl-carousel owl-services">
-            {% for i in ca %}
-            <div class="">
-              <div><img src="{{ i.image.url }}" style="width:300px;height: 250px;"></div><br>
-              <h6 style="font-size: 18px;font-weight: 800;">{{ i.category }} &nbsp{{ i.name }}</h6>
-              <p><h7>{{ i.kilometer }}</h7> | <h7>{{ i.fuel_type }}</h7> | <h7>{{ i.model }}</h7> | <h7>{{ i.registration_No }}</h7></p>
-              <p class="d-flex mb-0 d-block"><a href="{% url 'car_single' i.id %}" class="btn btn-primary py-2 mr-1" style="background-color: #c20000;"> &nbsp &nbsp &nbsp Details &nbsp &nbsp &nbsp </a > &nbsp &nbsp &nbsp <a href="car-single.html" class="btn btn-secondary py-2 ml-1" style="background-color:green"> &nbsp Watsapp Us &nbsp </a></p>
-            </div>
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
 
   

@@ -1,15 +1,30 @@
 {% load static %}
     {% include 'header.html' %}
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({% static 'images/bg2.jpg' %});" data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-		  <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-			<div class="col-md-9 ftco-animate pb-5">
-			  <h1 style="font-size: 50px;font-weight: 800;text-shadow: 2px 7px 0px  #000000;" >Choose Your Car</h1>
+	<script src="{% static 'zheader/js/jquery-1.11.1.min.js' %}"></script>
+	<script src="{% static 'zheader/js/jquery.vide.min.js' %}"></script>
+		<div data-vide-bg="{% static 'zheader/video/cook' %}">
+	
+			 <div class="banner-header">
+				<div class="container" style="height:700px">
+	
+							<br><br><br><br>
+						 <div class="principles-grids principles-grids1">
+							<div class="abt-btm agileits w3layouts aos-init aos-animate">
+	
+	
+	
+								<div class="clearfix"></div>
+							</div>
+						</div>
+	
+	
+	
+	
+				</div>
 			</div>
-		  </div>
+	
 		</div>
-	  </section>
+		<!-- //video header end -->
   
 
 		<section class="ftco-section bg-light">
@@ -24,7 +39,7 @@
 
     						<h2 class="mb-0"><a href="car-single.html">{{ i.category }} &nbsp{{ i.name }} &nbsp RS {{ i.price }}</a></h2>
 							<p><h7>KM {{ i.kilometer }}</h7> | <h7>{{ i.fuel_type }}</h7> | <h7>{{ i.model }}</h7> | <h7>{{ i.registration_No }}</h7></p>
-    						<p class="d-flex mb-0 d-block"><a href="{% url 'car_single' i.id %}" class="btn btn-primary py-2 mr-1" >Details</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1" >Watsapp Us</a></p>
+    						<p class="d-flex mb-0 d-block"><a href="{% url 'car_single' i.id %}" class="btn btn-primary py-2 mr-1" >Details</a> <a href="https://api.whatsapp.com/send?phone=+919039121545" class="btn btn-secondary py-2 ml-1" >Watsapp Us</a></p>
     					</div>
     				</div>
     			</div>

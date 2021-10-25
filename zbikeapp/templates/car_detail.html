@@ -6,7 +6,7 @@
 		<div class="container">
 		  <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
 			<div class="col-md-9 ftco-animate pb-5">
-			  <h1 style="font-size: 80px;font-weight: 800;text-shadow: 2px 7px 0px #c20000;" >{{ carss.category }}  &nbsp {{ carss.name }}</h1>
+			  <h1 style="font-size: 80px;font-weight: 800;text-shadow: 2px 7px 0px #c20000;" >{{ carssz.category }}  &nbsp {{ carssz.name }}</h1>
 			</div>
 		  </div>
 		</div>
@@ -18,10 +18,10 @@
       	<div class="row justify-content-center">
       		<div class="col-md-12">
       			<div class="car-details">
-      				<div class="img rounded" style="background-image: url({{ carss.image.url }});"></div>
+      				<div class="img rounded" style="background-image: url({{ carssz.image.url }});"></div>
       				<div class="text text-center">
       					<span class="subheading"></span>
-						<p class="d-flex mb-0 d-block" style="margin-left: 350px;"><a href="" class="btn btn-primary py-2 mr-1" >Book Test Drive</a> <a href="car-single.html" style="background-color:blue ;" class="btn btn-secondary py-2 ml-1" >View More Images</a><a href="car-single.html" class="btn btn-secondary py-2 ml-1" >Whatapp Us</a></p>
+						<p class="d-flex mb-0 d-block" style="margin-left: 350px;"><a href="https://api.whatsapp.com/send?phone=+919039121545" class="btn btn-secondary py-2 ml-1" >Whatapp Us</a></p>
       				</div>
       			</div>
       		</div>
@@ -36,7 +36,7 @@
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Fuel
-		                	<span>{{ carss.fuel_type }}</span>
+		                	<span>{{ carssz.fuel_type }}</span>
 		                </h3>
 	                </div>
                 </div>
@@ -51,7 +51,7 @@
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Model
-		                	<span>{{ carss.model }}</span>
+		                	<span>{{ carssz.model }}</span>
 		                </h3>
 	                </div>
                 </div>
@@ -66,7 +66,7 @@
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Km Driven
-		                	<span>{{ carss.kilometer }}</span>
+		                	<span>{{ carssz.kilometer }}</span>
 		                </h3>
 	                </div>
                 </div>
@@ -81,7 +81,7 @@
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Owner
-		                	<span>{{ carss.owners }}</span>
+		                	<span>{{ carssz.owners }}</span>
 		                </h3>
 	                </div>
                 </div>
@@ -96,7 +96,22 @@
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Colour
-		                	<span>{{ carss.colour }}</span>
+		                	<span>{{ carssz.colour }}</span>
+		                </h3>
+	                </div>
+                </div>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services">
+              <div class="media-body py-md-4">
+              	<div class="d-flex mb-3 align-items-center">
+	              	<div class="icon d-flex align-items-center justify-content-center"><img src="{% static 'images/z2.png' %}" style="width: 40%;" ></div>
+	              	<div class="text">
+		                <h3 class="heading mb-0 pl-3">
+		                	Varient
+		                	<span>{{ carssz.varient }}</span>
 		                </h3>
 	                </div>
                 </div>
@@ -111,7 +126,7 @@
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Insurance
-		                	<span>{{ carss.Insurance }}</span>
+		                	<span>{{ carssz.Insurance }}</span>
 		                </h3>
 	                </div>
                 </div>
@@ -126,7 +141,7 @@
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Registration Type
-		                	<span>{{ carss.registration_type }}</span>
+		                	<span>{{ carssz.registration_type }}</span>
 		                </h3>
 	                </div>
                 </div>
@@ -141,7 +156,7 @@
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Registration No
-		                	<span>{{ carss.registration_No }}</span>
+		                	<span>{{ carssz.registration_No }}</span>
 		                </h3>
 	                </div>
                 </div>
@@ -169,22 +184,22 @@
 
 						<div class="tab-content" id="pills-tabContent">
 						  <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
-							<p>{{ carss.discription }}</p>
+							<p>{{ carssz.discription }}</p>
 						  </div>
 
 						  <div class="tab-pane fade" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab">
 							
 							<div class="row">
-								<img src="{{ carss.image2.url }}" style="width:500px;height500px" alt="Image">
-								<img src="{{ carss.image3.url }}" style="width:500px;height500px" alt="Image">
-								<img src="{{ carss.image4.url }}" style="width:500px;height500px" alt="Image">
-								<img src="{{ carss.image5.url }}" style="width:500px;height500px" alt="Image">
-								<img src="{{ carss.image6.url }}" style="width:500px;height500px" alt="Image">
-								<img src="{{ carss.image7.url }}" style="width:500px;height500px" alt="Image">
-								<img src="{{ carss.image8.url }}" style="width:500px;height500px" alt="Image">
-								<img src="{{ carss.image9.url }}" style="width:500px;height500px" alt="Image">
+
+    							<img src="{{ carssz.image2.url }}" style="width:500px;height500px" alt="Image">
+    							<img src="{{ carssz.image3.url }}" style="width:500px;height500px" alt="Image">
+    							<img src="{{ carssz.image4.url }}" style="width:500px;height500px" alt="Image">
+    							<img src="{{ carssz.image5.url }}" style="width:500px;height500px" alt="Image">
+    							<img src="{{ carssz.image6.url }}" style="width:500px;height500px" alt="Image">
+    							<img src="{{ carssz.image7.url }}" style="width:500px;height500px" alt="Image">
+    							<img src="{{ carssz.image8.url }}" style="width:500px;height500px" alt="Image">   							
+    							<img src="{{ carssz.image9.url }}" style="width:500px;height500px" alt="Image">
 								 
-								  
 							</div>
 						  </div>
 
@@ -202,13 +217,19 @@
 												<input type="text" class="form-control" name="email" placeholder="Your Email">
 											  </div>
 											  <div class="form-group">
-												<input type="text" class="form-control" name="sub" placeholder="Subject">
+												<input type="number" maxlength="10" minlength="10" class="form-control" name="mobi" placeholder="Mobile">
+											  </div>
+											  <div class="form-group">
+												<input type="date"  class="form-control" name="dat" >
+											  </div>
+											  <div class="form-group">
+												<input type="time"  class="form-control" name="tim" >
 											  </div>
 											  <div class="form-group">
 												<textarea name="message" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
 											  </div>
 											  <div class="form-group">
-												<input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+												<input type="submit" value="Book Drive" class="btn btn-primary py-3 px-5">
 											  </div>
 											</form>
 										  

@@ -307,7 +307,7 @@ header
 }
 
 .header-area {
-  background-color: #fafafa;
+  background-color: transparent;
   position: absolute;
   top: 0px;
   left: 0px;
